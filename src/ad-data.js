@@ -36,7 +36,7 @@ const emojis = (num) => {
   return arr.join("");
 };
 
-const zip = (a, b) => a.map((k, i) => [k, b[i]]);
+const zip = (a, b) => a.map((k, i) => [k, b[i]]).flat();
 
 const emoTicker = (num) => {
   const e1 = Array(num / 2).fill(emoji());
