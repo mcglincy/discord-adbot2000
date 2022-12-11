@@ -3,7 +3,6 @@ const randomAd = () => {
 };
 
 const emoAd = () => {
-  //const emo = Array(10).fill(emoji());
   const emo = emoTicker(10);
   return emo + "\n\n" + sample(ads) + "\n\n" + emo;
 };
@@ -42,7 +41,7 @@ const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 const emoTicker = (num) => {
   const e1 = Array(num / 2).fill(emoji());
   const e2 = Array(num / 2).fill(emoji());
-  return zip(e1, e2);
+  return zip(e1, e2).join("");
 }
 
 const ads = [

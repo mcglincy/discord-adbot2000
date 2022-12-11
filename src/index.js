@@ -1,9 +1,9 @@
 
 require("dotenv").config();
 const { Client, Events, GatewayIntentBits, REST, Routes, SlashCommandBuilder } = require("discord.js");
-const { emoAd, randomAd } = require("./ad-data.js");
+const { emoAd } = require("./ad-data.js");
 const CLIENT_ID = "1050929742632726668";
-const GUILD_ID = "917465654968328234";  // Glumdark server ID
+// const GUILD_ID = "917465654968328234";  // Glumdark server ID
 
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
@@ -34,7 +34,8 @@ const rest = new REST({ version: '10' }).setToken(process.env.CLIENT_TOKEN);
     console.log(`Started refreshing ${commands.length} application (/) commands.`);
     // The put method is used to fully refresh all commands in the guild with the current set
     const data = await rest.put(
-      Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
+      // Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
+      Routes.applicationCommands(CLIENT_ID),
       { body: commands },
     );
     console.log(`Successfully reloaded ${data.length} application (/) commands.`);
